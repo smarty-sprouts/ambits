@@ -61,6 +61,13 @@ class Main extends Component {
 
   render() {
 
+    // Styling
+    const linkStyle = {
+      color:'gray',
+      textDecoration:'none',
+      fontSize: '11px',
+    };
+
     const logOutButton = this.state.isLoggedIn ?
       (<FlatButton label="Logout"
         onTouchTap={this.handleLogout.bind(this)}
@@ -70,6 +77,7 @@ class Main extends Component {
     const LoginModal = !this.state.isLoggedIn ?
       (<Login main={this} />) :
       null;
+
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
@@ -88,15 +96,21 @@ class Main extends Component {
             { this.props.ambit === null ?
               <div></div> :
               <MenuItem onTouchTap={this.handleClose}>
-                <Link to='/ambit'>Ambit</Link>
+                <Link to='/ambit' style={linkStyle} >
+                  Ambit
+                </Link>
               </MenuItem> }
 
             <MenuItem onTouchTap={this.handleClose}>
-              <Link to='/'>Day View</Link>
+              <Link to='/' style={linkStyle} >
+                Day View
+              </Link>
             </MenuItem>
 
             <MenuItem onTouchTap={this.handleClose}>
-              <Link to='/week'>Week View</Link>
+              <Link to='/week' style={linkStyle} >
+                Week View
+              </Link>
             </MenuItem>
           </Drawer>
 

@@ -37,6 +37,12 @@ class AmbitDescription extends Component {
       marginTop: 20
     };
 
+    const linkStyle = {
+      color:'white',
+      textDecoration:'none',
+      fontSize: '11px',
+    };
+
     return(
       <div>
         <Card style={cardStyle}>
@@ -48,7 +54,9 @@ class AmbitDescription extends Component {
           <CardActions>
             <FlatButton
               label= {
-                this.props.ambit.checkedIn ? "Checked In":"Check In!"
+                <span style={linkStyle}>
+                  {this.props.ambit.checkedIn ? "Checked In":"Check In!"}
+                </span>
               }
               onTouchTap={() => {
                 this.props.handleCheckinAmbit(this.props.ambit);
